@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Costix - Split Expenses with Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="/static/css/details.css">
+    <script src="/static/js/components.js" defer></script>
+    <script src="/static/js/details.js" defer></script>
+</head>
+<body>
+    <div id="main-view">
+        <div id="profile-section">
+            <img id="profile-picture">
+            <span id="entity-title"></span>
+            <span id="total-statement-text"></span></span>
+        </div>
+    
+        <div id="options-row">
+            <button id="settle-up-button" onclick="toggleAddSettlementScreen(true)">Settle up</button>
+        </div>
+    
+        <div id="statements-container"></div>
+
+        <div id="loading-statements-view" class="mono-container">
+            <img class="mono-icon-small" src="/static/gifs/loading.gif"><br>
+        </div>
+        
+        <div id="error-statements-view" class="mono-container">
+            <img class="mono-icon" src="/static/gifs/robot.gif"><br>
+            <span class="mono-text">Something went wrong</span>
+        </div>
+        
+        <div id="statements-empty-view" class="mono-container">
+            <img class="mono-icon" src="/static/gifs/box.gif"><br>
+            <span class="mono-text">Nothing's here</span>
+        </div>
+    
+        <div id="add-expense-button-container">
+            <canvas id="add-expense-button-bg"></canvas>
+            <button id="add-expense-button" onclick="toggleAddExpenseScreen(true)">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="loading-view" class="mono-container">
+        <img class="mono-icon-small" src="/static/gifs/loading.gif"><br>
+    </div>
+
+    <div id="error-view" class="mono-container">
+        <img class="mono-icon" src="/static/gifs/robot.gif"><br>
+        <span class="mono-text">Something went wrong</span>
+    </div>
+
+    <!-- Add Expense Screen -->
+    <canvas id="add-expense-screen-bg" onclick="toggleAddExpenseScreen(false)"></canvas>
+
+    <div id="add-expense-screen">
+        <span class="title">ADD STATEMENT</span>
+
+        <div class="box">
+            <div class="amount-field-container">
+                <span class="amount-field-currency">₹</span>
+                <input type="number" id="amount-field" placeholder="0" oninput="adjustAmountField(this)">
+            </div>
+
+            <input type="text" id="description-field" placeholder="Description">
+        </div>
+
+        <div id="who-paid-container">
+            <span id="who-paid-text">Who paid?</span>
+
+            <div id="i-paid-switch" onclick="setWhoPaid('me')">Me</div>
+            <div id="they-paid-switch" onclick="setWhoPaid('they')"></div>
+        </div>
+
+        <button id="add-final-expense-button" class="add-final-x-button" onclick="addExpenseAction()">Add Expense</button>
+    </div>
+
+    <!-- Add Settlement Screen -->
+    <canvas id="add-settlement-screen-bg" onclick="toggleAddSettlementScreen(false)"></canvas>
+
+    <div id="add-settlement-screen">
+        <span class="title"></span>
+
+        <div class="box">
+            <div class="amount-field-container">
+                <span class="amount-field-currency">₹</span>
+                <input type="number" id="settlement-amount-field" placeholder="0" oninput="adjustAmountField(this)">
+            </div>
+        </div>
+
+        <button id="add-final-settlement-button" class="add-final-x-button" onclick="settleAction()">Settle</button>
+    </div>
+</body>
+</html>

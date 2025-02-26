@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.toast-view
+{
+    position: fixed;
+    z-index: 1000;
+    top: 10px;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    width: 90%;
+    text-align: center;
+    background-color: #F2F2F2;
+    border: 1px solid #E6E6E6;
+    padding: 11px 20px;
+    box-sizing: border-box;
+    border-radius: 0.7em;
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    left: 50%;
+}
+
+.mono-icon
+{
+    width: 40px;
+}
+
+.mono-container
+{
+    opacity: 0.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.mono-text
+{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.mono-icon-small
+{
+    width: 30px;
+}

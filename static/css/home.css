@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Dirt&display=swap');
+
+:root
+{
+    --entity-item-picture-size: 55px;
+    --entity-description-opacity: 0.4;
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#entities-container
+{
+    display: none;
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 2px;
+    padding-bottom: 100px;
+}
+
+.entity-item
+{
+    padding: 5px 20px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.entity-picture
+{
+    width: var(--entity-item-picture-size);
+    height: var(--entity-item-picture-size);
+    border-radius: 50%;
+}
+
+.entity-info
+{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-name
+{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.entity-description
+{
+    font-size: 14px;
+    opacity: var(--entity-description-opacity);
+}
+
+.spacer
+{
+    flex: 1;
+}
+
+.entity-amount
+{
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.profit
+{
+    color: rgb(22, 132, 22);
+}
+
+.loss
+{
+    color: rgb(179, 39, 83);
+}
+
+#total-difference-label
+{
+    font-family: "Rubik Dirt", serif;
+    font-size: 20px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#total-difference-amount
+{
+    font-family: "Rubik Dirt", serif;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#add-entity-button
+{
+    all: unset;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    background-color: rgb(20, 112, 188);
+    color: white;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 0.8em;
+}
+
+#entities-loading
+{
+    display: none;
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#entities-loading-error, #entities-empty
+{
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.entity-id
+{
+    display: none;
+}
+
+.menu-button
+{
+    border-radius: 50%;
+    color: rgb(186, 186, 186);
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+#entities-heading
+{
+    text-align: center;
+    display: block;
+    margin-bottom: 23px;
+}
+
+#entities-heading span
+{
+    background-color: rgb(248, 248, 248);
+    padding: 8px 15px;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 9999em;
+    color: rgb(144, 144, 144);
+    border: 1px solid rgb(198, 198, 198);
+}
+
+#add-entity-screen-bg
+{
+    display: none;
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+
+#add-entity-screen
+{
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-radius: 0.8em;
+    z-index: 100;
+    color: black;
+    text-align: center;
+    padding: 25px 25px;
+    flex-direction: column;
+}
+
+#add-entity-screen .title
+{
+    display: block;
+    border-radius: 0.6em;
+    font-weight: 800;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#full-name-field
+{
+    all: unset;
+    display: block;
+    background-color: rgb(249, 249, 249);
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    border-radius: 0.4em;
+}
+
+#add-final-entity-button
+{
+    all: unset;
+    display: block;
+    background-color: rgb(20, 112, 188);
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    outline: none;
+    border: none;
+    padding: 15px;
+    border-radius: 0.8em;
+    cursor: pointer;
+}
+
+#full-name-field::placeholder
+{
+    color: rgba(135, 135, 135, 0.3);
+}
+
+#add-entity-screen .box
+{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+#entity-options-screen-bg
+{
+    display: none;
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+
+#entity-options-screen
+{
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border-radius: 0.8em;
+    z-index: 100;
+    color: black;
+    text-align: center;
+    padding: 25px 25px;
+    flex-direction: column;
+}
+
+#entity-options-screen .title
+{
+    margin-left: 10px;
+    display: block;
+    border-radius: 0.6em;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#entity-options-screen .options
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.entity-option
+{
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: 15px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 0.7em;
+    margin-top: 5px;
+}
+
+.danger-option
+{
+    background-color: rgb(222, 55, 17);
+    color: white;
+}
+
+#entity-options-screen-profile-section
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#entity-options-screen-profile-section .picture
+{
+    width: 35px;
+    border-radius: 50%;
+}
+
+#mini-profile-view
+{
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background-color: rgb(249, 249, 249);
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 99999em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    padding-right: 20px;
+}
+
+#mini-profile-view-picture
+{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+#mini-profile-view-name
+{
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: 700;
+}

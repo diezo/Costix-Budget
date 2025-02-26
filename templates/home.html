@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costix - Split Expenses with Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/components.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script src="/static/js/components.js" defer></script>
+    <script src="/static/js/home.js" defer></script>
+</head>
+<body>
+    <span id="total-difference-label">TOTAL OWE</span>
+    <span id="total-difference-amount">--</span>
+    
+    <div id="entities-heading">
+        <span>INDIVIDUALS</span>
+    </div>
+
+    <div id="entities-loading" class="mono-container">
+        <img class="mono-icon-small" src="/static/gifs/loading.gif"><br>
+    </div>
+
+    <div id="entities-loading-error" class="mono-container">
+        <img class="mono-icon" src="/static/gifs/robot.gif"><br>
+        <span class="mono-text">Something went wrong</span>
+    </div>
+    
+    <div class="mono-container" id="entities-empty">
+        <img class="mono-icon" src="/static/gifs/box.gif"><br>
+        <span class="mono-text">Nothing's here</span>
+    </div>
+
+    <div id="entities-container"></div>
+
+    <button id="add-entity-button" onclick="toggleAddEntityScreen(true)">
+        <i class="fa fa-plus"></i>
+    </button>
+
+    <canvas id="add-entity-screen-bg" onclick="toggleAddEntityScreen(false)"></canvas>
+
+    <div id="add-entity-screen">
+        <span class="title">NEW PERSON</span>
+
+        <div class="box">
+            <input type="text" id="full-name-field" placeholder="Full name">
+        </div>
+
+        <button id="add-final-entity-button" onclick="addIndividualAction()">Add Individual</button>
+    </div>
+
+    <canvas id="entity-options-screen-bg" onclick="toggleEntityOptionsScreen(false)"></canvas>
+
+    <div id="entity-options-screen">
+        <div id="entity-options-screen-profile-section">
+            <img class="picture">
+            <span class="title">Abhijeet</span>
+        </div>
+
+        <div class="options">
+            <span class="entity-option danger-option" id="delete-entity-button">DELETE</span>
+            <span class="entity-option" id="rename-entity-button">RENAME</span>
+            <span class="entity-option" id="export-entity-button">EXPORT</span>
+        </div>
+    </div>
+
+    <div id="mini-profile-view">
+        <img id="mini-profile-view-picture">
+        <span id="mini-profile-view-name"></span>
+    </div>
+</body>
+</html>
