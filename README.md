@@ -1,6 +1,6 @@
 # Costix - Expense Splitting & Tracking Website
 
-[![wakatime](https://wakatime.com/badge/user/018dbb56-f37d-40a3-96e0-e01ce5e8b6ac/project/1c2c930e-0ce3-47fb-8d0a-09b3bb3570ca.svg)](https://wakatime.com/badge/user/018dbb56-f37d-40a3-96e0-e01ce5e8b6ac/project/1c2c930e-0ce3-47fb-8d0a-09b3bb3570ca)
+[![wakatime](https://wakatime.com/badge/user/018dbb56-f37d-40a3-96e0-e01ce5e8b6ac/project/1c2c930e-0ce3-47fb-8d0a-09b3bb3570ca.svg)]()
 
 [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](https://linkedin.com/in/deepaksonii)
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/diezo)
